@@ -25,7 +25,23 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root"></div>
-
+  <script src="https://static.filestackapi.com/v3/filestack.js"></script>
+  <script type="text/javascript">
+  // I know this little asshole belongs in here somewhere
+    var fsClient = filestack.init('AYvePQgbcTkyMg8Bv9rzQz');
+    function openPicker() {
+      fsClient.pick({
+        fromSources:["local_file_system","video","instagram","dropbox"],
+        accept:["image/*","video/*"],
+        maxSize:1024,
+        maxFiles:1,
+        minFiles:1
+      }).then(function(response) {
+        // declare this function to handle response
+        handleFilestack(response);
+      });
+    }
+  </script>
 
 </body>
 
